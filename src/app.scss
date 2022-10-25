@@ -1,0 +1,69 @@
+@mixin monofont {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+@mixin lightbg {
+  background-color: #eee;
+}
+
+@mixin nogap {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ddd;
+  display: grid;
+  grid-template-rows: auto 1fr 1fr;
+  height: 100vh;
+  @include nogap;
+}
+
+h4 {
+  @include monofont;
+  @include lightbg;
+  margin: 0;
+  padding: 1em;
+}
+
+.feature {
+  display: flex;
+  align-content: space-around;
+  align-items: center;
+  justify-content: space-around;
+  
+  .blob-fish pre {
+    font-size: 4rem;
+  }
+}
+
+.atlas {
+  .blob-fish {
+    pre {
+      font-size: 2rem;
+    }
+    label {
+      text-align: center;
+      @include lightbg;
+      @include monofont;
+    }
+  }
+}
+
+.flex-vert {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-horiz {
+  display: flex;
+  flex-direction: rows;
+}
+
+.flex-space-around {
+  justify-content: space-around;
+}
+
+.bf {
+  display: flex;
+}
