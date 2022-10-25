@@ -31,22 +31,28 @@ h4 {
   align-content: space-around;
   align-items: center;
   justify-content: space-around;
-  
+
   .blob-fish pre {
     font-size: 4rem;
   }
 }
 
 .atlas {
+  align-items: flex-end;
+  margin-bottom: 1em;
+
   .blob-fish {
     pre {
       font-size: 2rem;
     }
-    label {
-      text-align: center;
-      @include lightbg;
-      @include monofont;
-    }
+  }
+}
+
+.blob-fish {
+  label {
+    text-align: center;
+    @include lightbg;
+    @include monofont;
   }
 }
 

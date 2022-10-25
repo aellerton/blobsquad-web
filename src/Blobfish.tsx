@@ -4,6 +4,15 @@ const NORMAL = String.raw`
  ___
 /⋅¿⋅\<
 `
+const LEFT = String.raw`
+ ___
+/<¿<\<
+`
+
+const RIGHT = String.raw`
+ ___
+/>¿>\<
+`
 
 const UP = String.raw`
  ___
@@ -17,7 +26,7 @@ const HAPPY = String.raw`
 
 const DOWN = String.raw`
  ___
-/,¿,\<
+/.¿.\<
 `
 
 const ANGRY = String.raw`
@@ -30,13 +39,39 @@ const CALM = String.raw`
 /-¿-\<
 `
 
+const SAD = String.raw`
+ ___
+/v¿v\<
+`
+
+const SLEEP = String.raw`
+ ___
+/ˇ¿ˇ\<
+`
+
+const SUPRISE = String.raw`
+ ___
+/o¿o\<
+`
+
+const DEAD = String.raw`
+ ___
+/x¿x\<
+`
+
 export const BLOB_FISH = {
   'normal': NORMAL,
+  'left': LEFT,
   'up': UP,
   'happy': HAPPY,
   'down': DOWN,
   'angry': ANGRY,
   'calm': CALM,
+  'sad': SAD,
+  'dead': DEAD,
+  'sleep': SLEEP,
+  'right': RIGHT,
+  'suprise': SUPRISE,
 }
 
 export type BlobFishKind = keyof typeof BLOB_FISH
