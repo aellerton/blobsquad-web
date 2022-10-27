@@ -1,9 +1,14 @@
 import { mergeProps, Show } from 'solid-js'
 
+/** remove first line */
+function rfl(s: string): string {
+  return s.replace(/^.*\n/, '')
+}
+
 const NORMAL = String.raw`
  ___
-/⋅¿⋅\<
-`
+/⋅¿⋅\<`
+
 const LEFT = String.raw`
  ___
 /<¿<\<
@@ -60,18 +65,18 @@ const DEAD = String.raw`
 `
 
 export const BLOB_FISH = {
-  'normal': NORMAL,
-  'left': LEFT,
-  'up': UP,
-  'happy': HAPPY,
-  'down': DOWN,
-  'angry': ANGRY,
-  'calm': CALM,
-  'sad': SAD,
-  'dead': DEAD,
-  'sleep': SLEEP,
-  'right': RIGHT,
-  'suprise': SUPRISE,
+  'normal': rfl(NORMAL),
+  'left': rfl(LEFT),
+  'up': rfl(UP),
+  'happy': rfl(HAPPY),
+  'down': rfl(DOWN),
+  'angry': rfl(ANGRY),
+  'calm': rfl(CALM),
+  'sad': rfl(SAD),
+  'dead': rfl(DEAD),
+  'sleep': rfl(SLEEP),
+  'right': rfl(RIGHT),
+  'suprise': rfl(SUPRISE),
 }
 
 export type BlobFishKind = keyof typeof BLOB_FISH

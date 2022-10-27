@@ -65,8 +65,14 @@ const App: Component = () => {
         <Blobfish kind="happy" showLabel />
         <Blobfish kind="angry" showLabel />
         <Blobfish kind="calm" showLabel />
+        <Blobfish kind="suprise" showLabel />
+        <Blobfish kind="sad" showLabel />
+        <Blobfish kind="dead" showLabel />
+        <Blobfish kind="sleep" showLabel />
         <Blobfish kind="up" showLabel />
         <Blobfish kind="down" showLabel />
+        <Blobfish kind="left" showLabel />
+        <Blobfish kind="right" showLabel />
       </div>
     </>
   )

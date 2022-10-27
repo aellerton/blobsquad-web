@@ -14,8 +14,9 @@
 body {
   background: #ddd;
   display: grid;
-  grid-template-rows: auto 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
   height: 100vh;
+  width: 100vw;
   @include nogap;
 }
 
@@ -44,6 +45,7 @@ h4 {
   .blob-fish {
     pre {
       font-size: 2rem;
+      margin: 0;
     }
   }
 }
@@ -64,6 +66,7 @@ h4 {
 .flex-horiz {
   display: flex;
   flex-direction: rows;
+  flex-wrap: wrap;
 }
 
 .flex-space-around {
@@ -72,4 +75,38 @@ h4 {
 
 .bf {
   display: flex;
+}
+
+/* Phone: Portrait */
+@media only screen and (min-device-width: 300px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+
+  h4 {
+    font-size: 1.4rem;
+  }
+
+  .feature {
+    .blob-fish pre {
+      font-size: 4rem;
+      margin: 0 0 2rem 0;
+    }
+  }
+
+  .atlas {
+    margin: 0 0 3px 3px;
+
+    .blob-fish {
+      flex: 1 1 20vw;
+      margin: 0 3px 3px 0px;
+      @include lightbg;
+
+      pre {
+        font-size: 1.3rem;
+        margin: 0 0 0.8em 0;
+      }
+
+      label {
+        font-size: 0.9rem;
+      }
+    }
+  }
 }
