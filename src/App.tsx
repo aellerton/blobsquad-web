@@ -51,6 +51,10 @@ const App: Component = () => {
     document.body.removeEventListener("keyup", keyThing)
   })
 
+  function consoleSetMode(v: BlobFishKind) {
+    console.log(new Date().toISOString() + 'set mode to', v);
+    setMode(v)    
+  }
   return (
     <>
       <h4>Blob Squad</h4>
@@ -61,18 +65,18 @@ const App: Component = () => {
 
       </div>
       <div class="flex-horiz flex-space-around atlas">
-        <Blobfish kind="normal" showLabel />
-        <Blobfish kind="happy" showLabel />
-        <Blobfish kind="angry" showLabel />
-        <Blobfish kind="calm" showLabel />
-        <Blobfish kind="suprise" showLabel />
-        <Blobfish kind="sad" showLabel />
-        <Blobfish kind="dead" showLabel />
-        <Blobfish kind="sleep" showLabel />
-        <Blobfish kind="up" showLabel />
-        <Blobfish kind="down" showLabel />
-        <Blobfish kind="left" showLabel />
-        <Blobfish kind="right" showLabel />
+        <Blobfish kind="normal" showLabel on:down={(e) => consoleSetMode(e.kind)}/>
+        <Blobfish kind="happy" showLabel on:down={[consoleSetMode, e.kind]} />
+        <Blobfish kind="angry" showLabel on:down={[consoleSetMode, e.kind]} />
+        <Blobfish kind="calm" showLabel on:down={[consoleSetMode, e.kind]} />
+        <Blobfish kind="suprise" showLabel on:down={[consoleSetMode, e.kind]} />
+        <Blobfish kind="sad" showLabel on:down={[consoleSetMode, e.kind]} />
+        <Blobfish kind="dead" showLabel on:down={[consoleSetMode, e.kind]} />
+        <Blobfish kind="sleep" showLabel on:down={[consoleSetMode, e.kind]} />
+        <Blobfish kind="up" showLabel on:down={[consoleSetMode, e.kind]} />
+        <Blobfish kind="down" showLabel on:down={[consoleSetMode, e.kind]} />
+        <Blobfish kind="left" showLabel on:down={[consoleSetMode, e.kind]} />
+        <Blobfish kind="right" showLabel on:down={[consoleSetMode, e.kind]} />
       </div>
     </>
   )
