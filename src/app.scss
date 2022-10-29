@@ -9,6 +9,18 @@ $grid-breakpoints: (
   xxl: 1400px
 );
 
+$normal: (
+  bg: #ddd,
+  bg-light: #eee,
+  text: black,
+);
+
+$dark-theme: (
+  bg: #111,
+  bg-light: #444,
+  text: eee,
+);
+
 html, body {
   box-sizing: border-box;
 }
@@ -21,9 +33,9 @@ html, body {
 }
 
 @mixin lightbg {
-  background-color: #eee;
+  background-color: map-get($normal, bg-light);
   &:hover {
-    background-color: color.scale(#eee, $lightness: 50%);
+    background-color: color.scale(map-get($normal, bg-light), $lightness: 50%);
   }
 }
 
@@ -33,7 +45,8 @@ html, body {
 }
 
 body {
-  background: #ddd;
+  background: map-get($normal, bg);
+  color: map-get($normal, text);
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100vh;
@@ -41,12 +54,20 @@ body {
   @include nogap;
 }
 
+body.dark {
+  background: map-get($dark-theme, bg);
+  color: map-get($dark-theme, text);
+}
+
+.lightbg {
+  @include lightbg;
+}
+
 h1 {
   @include monofont;
-  @include lightbg;
   font-size: 1rem;
   margin: 0;
-  padding: 1em;
+  padding: 0;
 }
 
 .feature {
@@ -115,6 +136,13 @@ h1 {
 
 // .flex-space-around {
 // }
+
+nav {
+  display: flex;
+  flex-direction: rows;
+  align-items: center;
+  padding: 1em;
+}
 
 .bf {
   display: flex;

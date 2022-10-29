@@ -4,6 +4,7 @@ import Comp from './Comp'
 
 const App: Component = () => {
   const [mode, setMode] = createSignal('normal' as BlobFishKind)
+  const [theme, setTheme] = createSignal('dark')
 
   function keyThing(event: KeyboardEvent) {
     if (event.type === 'keydown') {
@@ -12,7 +13,7 @@ const App: Component = () => {
       delete keys[event.key]
     }
     console.log(new Date().toISOString() + ' key', event.key, event.type, keys)
-    
+
     // if (Object.keys(keys).length > 0)
     if (keys.ArrowUp) {
       setMode('up')
@@ -38,10 +39,10 @@ const App: Component = () => {
       setMode('suprise')
     } else {
       setMode('normal')
-    } 
+    }
   }
 
-  let keys: {[key: string]: boolean} = {}
+  let keys: { [key: string]: boolean } = {}
 
   document.body.addEventListener("keydown", keyThing)
   document.body.addEventListener("keyup", keyThing)
@@ -52,12 +53,22 @@ const App: Component = () => {
   })
 
   function consoleSetMode(v: BlobFishKind) {
-    console.log(new Date().toISOString() + 'set mode to', v);
-    setMode(v)    
+    console.log(new Date().toISOString() + 'set mode to', v)
+    setMode(v)
   }
+  function applyTheme(name: string) {
+    console.log('set theme', name);
+    document.body.classList.toggle('dark')
+    setTheme(theme() == 'dark' ? '' : 'dark')
+  }
+
   return (
     <>
-      <h1>Blob Squad</h1>
+      <nav class="lightbg">
+        <h1>Blob Squad</h1>
+        <div style="flex: 1 0"></div>
+        <button onClick={(e) => applyTheme('dark')}>Dark</button>
+      </nav>
       <div class="feature">
         <div class="epic">
           <Blobfish kind={mode()} showLabel={true} />
@@ -65,9 +76,9 @@ const App: Component = () => {
 
       </div>
       <div class="atlas">
-        <For each={ORDERED_BLOB_FISH}>{(kind, i) => 
+        <For each={ORDERED_BLOB_FISH}>{(kind, i) =>
           <button onClick={[consoleSetMode, kind]}>{kind}</button>
-        }  
+        }
         </For>
       </div>
     </>
