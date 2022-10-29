@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -6,6 +8,10 @@ $grid-breakpoints: (
   xl: 1200px,
   xxl: 1400px
 );
+
+html, body {
+  box-sizing: border-box;
+}
 
 // How to use: https://getbootstrap.com/docs/5.0/layout/breakpoints/
 @import 'media-queries';
@@ -16,6 +22,9 @@ $grid-breakpoints: (
 
 @mixin lightbg {
   background-color: #eee;
+  &:hover {
+    background-color: color.scale(#eee, $lightness: 50%);
+  }
 }
 
 @mixin nogap {
@@ -32,9 +41,10 @@ body {
   @include nogap;
 }
 
-h4 {
+h1 {
   @include monofont;
   @include lightbg;
+  font-size: 1rem;
   margin: 0;
   padding: 1em;
 }
@@ -52,13 +62,35 @@ h4 {
 
 .atlas {
   align-items: flex-end;
-  margin-bottom: 1em;
+  // display: flex;
+  // flex-direction: rows;
+  // flex-wrap: wrap;
+  // justify-content: space-around;
+  // margin-bottom: 1em;
 
-  .blob-fish {
-    pre {
-      font-size: 2rem;
-      margin: 0;
-    }
+  // // .blob-fish {
+  // //   pre {
+  // //     font-size: 2rem;
+  // //     margin: 0;
+  // //   }
+  // // }
+  // &>* {
+  ////   flex: 1;
+  //   flex: 1 0 calc(25% - 10px);
+  //   margin: 1px;
+  // }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+
+  button {
+    @include monofont;
+    @include lightbg;
+    font-size: 1.2rem;
+    display: block;
+    border: 0;
+    height: 2rem;
   }
 }
 
@@ -75,15 +107,14 @@ h4 {
   flex-direction: column;
 }
 
-.flex-horiz {
-  display: flex;
-  flex-direction: rows;
-  flex-wrap: wrap;
-}
+// .flex-horiz {
+//   display: flex;
+//   flex-direction: rows;
+//   flex-wrap: wrap;
+// }
 
-.flex-space-around {
-  justify-content: space-around;
-}
+// .flex-space-around {
+// }
 
 .bf {
   display: flex;
@@ -106,19 +137,25 @@ h4 {
   .atlas {
     margin: 0 0 3px 3px;
 
-    .blob-fish {
-      flex: 1 1 20vw;
-      margin: 0 3px 3px 0px;
-      @include lightbg;
+    // .blob-fish {
+    //   flex: 1 1 20vw;
+    //   margin: 0 3px 3px 0px;
+    //   @include lightbg;
 
-      pre {
-        font-size: 1.3rem;
-        margin: 0 0 0.8em 0;
-      }
+    //   pre {
+    //     font-size: 1.3rem;
+    //     margin: 0 0 0.8em 0;
+    //   }
 
-      label {
-        font-size: 0.9rem;
-      }
-    }
+    //   label {
+    //     font-size: 0.9rem;
+    //   }
+    // }
+  }
+}
+@include media-breakpoint-up(md) {
+  .atlas {
+    grid-template-columns: repeat(7, 1fr);
+
   }
 }

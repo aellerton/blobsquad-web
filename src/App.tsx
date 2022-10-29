@@ -1,5 +1,5 @@
-import { Component, createSignal, onCleanup } from 'solid-js'
-import Blobfish, { BlobFishKind } from './Blobfish'
+import { Component, createSignal, onCleanup, For } from 'solid-js'
+import Blobfish, { BlobFishKind, ORDERED_BLOB_FISH } from './Blobfish'
 import Comp from './Comp'
 
 const App: Component = () => {
@@ -21,7 +21,7 @@ const App: Component = () => {
     } else if (keys.ArrowLeft) {
       setMode('left')
     } else if (keys.j) {
-      setMode('angry')
+      setMode('love')
     } else if (keys.k) {
       setMode('happy')
     } else if (keys.l) {
@@ -57,26 +57,18 @@ const App: Component = () => {
   }
   return (
     <>
-      <h4>Blob Squad</h4>
+      <h1>Blob Squad</h1>
       <div class="feature">
         <div class="epic">
           <Blobfish kind={mode()} showLabel={true} />
         </div>
 
       </div>
-      <div class="flex-horiz flex-space-around atlas">
-        <Blobfish kind="normal" showLabel on:down={(e) => consoleSetMode(e.kind)}/>
-        <Blobfish kind="happy" showLabel on:down={[consoleSetMode, e.kind]} />
-        <Blobfish kind="angry" showLabel on:down={[consoleSetMode, e.kind]} />
-        <Blobfish kind="calm" showLabel on:down={[consoleSetMode, e.kind]} />
-        <Blobfish kind="suprise" showLabel on:down={[consoleSetMode, e.kind]} />
-        <Blobfish kind="sad" showLabel on:down={[consoleSetMode, e.kind]} />
-        <Blobfish kind="dead" showLabel on:down={[consoleSetMode, e.kind]} />
-        <Blobfish kind="sleep" showLabel on:down={[consoleSetMode, e.kind]} />
-        <Blobfish kind="up" showLabel on:down={[consoleSetMode, e.kind]} />
-        <Blobfish kind="down" showLabel on:down={[consoleSetMode, e.kind]} />
-        <Blobfish kind="left" showLabel on:down={[consoleSetMode, e.kind]} />
-        <Blobfish kind="right" showLabel on:down={[consoleSetMode, e.kind]} />
+      <div class="atlas">
+        <For each={ORDERED_BLOB_FISH}>{(kind, i) => 
+          <button onClick={[consoleSetMode, kind]}>{kind}</button>
+        }  
+        </For>
       </div>
     </>
   )
