@@ -5,9 +5,13 @@ function rfl(s: string): string {
   return s.replace(/^.*\n/, '')
 }
 
-const NORMAL = String.raw`
+const NORMAL_ORIG = String.raw`
  ___
 /⋅¿⋅\<`
+
+const NORMAL = String.raw`
+ ___
+/•¿•\<`
 
 const LEFT = String.raw`
  ___
@@ -53,9 +57,13 @@ const SPOCK = String.raw`
  __-
 /⋅¿^\<`
 
-const SUPRISE = String.raw`
+const SUPRISE_OROG = String.raw`
  ___
 /o¿o\<`
+
+const SUPRISE = String.raw`
+ ___
+/!¿!\<`
 
 const DEAD = String.raw`
  ___

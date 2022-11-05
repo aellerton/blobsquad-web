@@ -26,11 +26,15 @@ body {
   box-sizing: border-box;
 }
 
+pre {
+  font-family: 'Noto Sans Mono', monospace;
+}
+
 // How to use: https://getbootstrap.com/docs/5.0/layout/breakpoints/
 @import 'media-queries';
 
 @mixin monofont {
-  font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
   // line-height: 1rem;
 }
 
