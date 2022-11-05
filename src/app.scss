@@ -21,7 +21,8 @@ $dark-theme: (
   text: eee,
 );
 
-html, body {
+html,
+body {
   box-sizing: border-box;
 }
 
@@ -29,11 +30,13 @@ html, body {
 @import 'media-queries';
 
 @mixin monofont {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+  // line-height: 1rem;
 }
 
 @mixin lightbg {
   background-color: map-get($normal, bg-light);
+
   &:hover {
     background-color: color.scale(map-get($normal, bg-light), $lightness: 50%);
   }
@@ -65,7 +68,8 @@ body.dark {
 
 h1 {
   @include monofont;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: normal;;
   margin: 0;
   padding: 0;
 }
@@ -78,6 +82,9 @@ h1 {
 
   .blob-fish pre {
     font-size: 4rem;
+    height: 5rem;
+    line-height: 4rem;
+    padding-bottom: 5.5rem;
   }
 }
 
@@ -90,7 +97,7 @@ h1 {
   // margin-bottom: 1em;
 
   // // .blob-fish {
-  // //   pre {
+  // //   1 {
   // //     font-size: 2rem;
   // //     margin: 0;
   // //   }
@@ -181,6 +188,7 @@ nav {
     // }
   }
 }
+
 @include media-breakpoint-up(md) {
   .atlas {
     grid-template-columns: repeat(7, 1fr);

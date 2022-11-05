@@ -67,7 +67,7 @@ const App: Component = () => {
       <nav class="lightbg">
         <h1>Blob Squad</h1>
         <div style="flex: 1 0"></div>
-        <button onClick={(e) => applyTheme('dark')}>Dark</button>
+        {/* <button onClick={(e) => applyTheme('dark')}>Dark</button> */}
       </nav>
       <div class="feature">
         <div class="epic">
